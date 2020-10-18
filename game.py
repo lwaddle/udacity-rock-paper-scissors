@@ -18,7 +18,12 @@ class Game:
 
     def play_game(self):
         self.clear_screen()
-        print("Game start!\n")
+        try:
+            with open("start_screen.txt", "r") as f:
+                text = f.read()
+                print(text)
+        except Exception("Error"):
+            print("Unable to load start_screen.txt")
         sleep(1.5)
 
         self.clear_screen()
