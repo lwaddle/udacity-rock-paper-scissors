@@ -37,10 +37,15 @@ class Game:
         move2 = self.p2.move()
 
         # Scoring
+        round_winner_message = ''
         if self._beats(move1, move2):     # Player 1 wins round
             self.p1.score += 1
+            round_winner_message = "PLAYER 1 WINS THIS ROUND"
         elif self._beats(move2, move1):   # Player 2 wins round
             self.p2.score += 1
+            round_winner_message = "PLAYER 2 WINS THIS ROUND"
+        else:
+            round_winner_message = "TIE"
 
         self.clear_screen()
         print("=================================================")
@@ -49,6 +54,7 @@ class Game:
             f"{self.p2.score}")
         print("=================================================\n\n")
         print(f"Player 1: {move1}     Player 2: {move2}\n\n")
+        print(round_winner_message + "\n\n")
 
         print("-------------------------------------------------\n\n\n\n\n\n")
 
